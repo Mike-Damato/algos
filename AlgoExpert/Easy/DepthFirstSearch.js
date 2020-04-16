@@ -1,3 +1,4 @@
+//Solution 1
 class Node {
   constructor(name) {
     this.name = name;
