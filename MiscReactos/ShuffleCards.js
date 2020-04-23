@@ -3,7 +3,7 @@ let deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
 
 const swap = (cards, idx) => {
   let randIdx = Math.floor(Math.random() * (cards.length - 1));
-  [cards[randIdx], cards[idk]] = [cards[idx], cards[randIdx]];
+  [cards[randIdx], cards[idx]] = [cards[idx], cards[randIdx]];
 };
 
 const shuffle = (cards) => {
@@ -18,7 +18,7 @@ let deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
 
 const swap = (cards, idx) => {
   let randIdx = Math.floor(Math.random() * (cards.length - 1));
-  [cards[randIdx], cards[idk]] = [cards[idx], cards[randIdx]];
+  [cards[randIdx], cards[idx]] = [cards[idx], cards[randIdx]];
 };
 
 const shuffle = (cards) => {
@@ -40,7 +40,7 @@ const swap = (cards, idx) => {
 };
 
 const shuffle = (cards) => {
-  cards.forEacch((card, idx) => {
+  cards.forEach((card, idx) => {
     swap(cards, idx);
   });
   return cards;
