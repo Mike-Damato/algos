@@ -1,5 +1,5 @@
 //Solution 1
-function findThreeLargestNumbers(array) {
+const findThreeLargestNumbers = (array) => {
   let answerArr = [array[0], array[1], array[2]].sort((a, b) => a - b);
   for (let i = 3; i < array.length; ++i) {
     let num = array[i];
@@ -7,10 +7,10 @@ function findThreeLargestNumbers(array) {
     answerArr.sort((a, b) => a - b).shift();
   }
   return answerArr;
-}
+};
 
 //Solution 2
-function findThreeLargestNumbers(array) {
+const findThreeLargestNumbers = (array) => {
   // Write your code here.
   let smallest = -Infinity;
   let mid = -Infinity;
@@ -31,4 +31,4 @@ function findThreeLargestNumbers(array) {
     }
   }
   return [smallest, mid, biggest];
-}
+};
