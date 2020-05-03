@@ -39,7 +39,7 @@ class HashTable {
     return keysArr;
   }
 
-  //Keys without data collisions
+  // Keys without data collisions
   // keys() {
   //   if (!this.data.length) {
   //     return undefined
