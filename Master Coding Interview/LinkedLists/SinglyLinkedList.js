@@ -68,4 +68,22 @@ class LinkedList {
     this.length--;
     return this.printList();
   }
+  reverse() {
+    //If only 1 element just return head (nothing to reverse)
+    if (!this.head.next) {
+      return this.head;
+    }
+    let current = this.head;
+    this.tail = this.head;
+    let second = current.next;
+    while (second !== null) {
+      const temp = second.next;
+      second.next = current;
+      current = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = current;
+    return this;
+  }
 }
