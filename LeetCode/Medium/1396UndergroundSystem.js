@@ -9,7 +9,6 @@ UndergroundSystem.prototype.checkIn = function (id, stationName, t) {
 
 UndergroundSystem.prototype.checkOut = function (id, stationName, t) {
   let route = this.checkIns[id].stationName + ' to ' + stationName;
-
   if (route in this.trips === false) {
     this.trips[route] = [];
   }
