@@ -46,3 +46,17 @@ var singleNonDuplicate = function (nums) {
   }
   return nums[left];
 };
+
+//[1,1,2,3,3,4,4,8,8]
+//left       = 0 , 0 , 0   , 2
+//right      = 8 , 4 , 2   , 2
+//mid        = 4 , 2 , 1(0)
+//num[mid]   = 3 , 2 , 1
+//num[mid+1] = 4 , 3 , 1
+
+//[3,3,7,7,10,11,11]
+//left       = 0   , 4   , 4
+//right      = 6   , 6   , 4
+//mid        = 3(2), 5(4),
+//num[mid]   = 7   , 10  ,
+//num[mid+1] = 7   , 11  ,
