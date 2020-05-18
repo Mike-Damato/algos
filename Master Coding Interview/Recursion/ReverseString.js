@@ -1,21 +1,20 @@
 //Implement a function that reverses a string using iteration...and then recursion!
 function reverseStringIterative(str) {
-  let ans = ''
+  let ans = '';
   for (let i = str.length; i > -1; i--) {
-    ans += str[i]
+    ans += str[i];
   }
   return ans;
 }
 
-reverseStringIterative('yoyo mastery')
-should return: 'yretsam oyoy'
+reverseStringIterative('yoyo mastery');
 
 const reverseStringRecursive = (str) => {
   if (str === '') {
-    return ''
+    return '';
   } else {
-    return reverseStringRecursive(str.substr(1)) + str.charAt(0)
+    return reverseStringRecursive(str.substr(1)) + str.charAt(0);
   }
-}
+};
 
-reverseStringRecursive('yoyo mastery')
+reverseStringRecursive('yoyo mastery');
