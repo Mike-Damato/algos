@@ -16,5 +16,3 @@ const bubbleSort = (arr) => {
 
 bubbleSort(numbers);
 console.log(numbers);
-
-//alternate
