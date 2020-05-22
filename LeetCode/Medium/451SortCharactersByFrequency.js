@@ -35,3 +35,28 @@ const frequencySort = (s) => {
     });
   return result;
 };
+
+//Solution 3
+var frequencySort = function (s) {
+  let ans = '';
+  if (s.length < 1) {
+    return ans;
+  }
+  let hash = {};
+  for (const letter in s) {
+    if (hash[s[letter]]) {
+      hash[s[letter]] += 1;
+    } else {
+      hash[s[letter]] = 1;
+    }
+  }
+  let arr = Object.entries(hash).sort((a, b) => b[1] - a[1]);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][1] >= 1) {
+      ans += arr[i][0];
+      arr[i][1] -= 1;
+      i--;
+    }
+  }
+  return ans;
+};
