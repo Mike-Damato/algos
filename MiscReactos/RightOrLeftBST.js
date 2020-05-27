@@ -4,7 +4,6 @@ const solution = (arr) => {
     return '';
   }
   let filtered = arr.filter((elem) => elem !== -1 && elem !== 0);
-  console.log(filtered);
   let leftSum = 0;
   let rightSum = 0;
   for (let i = 1; i < filtered.length; i++) {
