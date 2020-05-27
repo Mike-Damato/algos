@@ -8,8 +8,6 @@ function mergeSort(array) {
   let mid = Math.floor(array.length / 2);
   let left = array.slice(0, mid);
   let right = array.slice(mid);
-  console.log(left);
-  console.log(right);
 
   return merge(mergeSort(left), mergeSort(right));
 }
@@ -44,8 +42,6 @@ function mergeSort(array) {
   let mid = Math.floor(array.length / 2);
   let left = array.slice(0, mid);
   let right = array.slice(mid);
-  console.log(left);
-  console.log(right);
 
   return merge(mergeSort(left), mergeSort(right));
 }
