@@ -14,3 +14,21 @@ const maxSubArraySum = (arr, n) => {
   }
   return max;
 };
+
+//Alternate
+function maxSubarraySum(arr, n) {
+  // add whatever parameters you deem necessary - good luck!
+  if (arr.length < n) {
+    return null;
+  }
+  let max = -Infinity;
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += arr[i];
+  }
+  for (let i = n; i < arr.length; i++) {
+    sum += arr[i] - arr[i - n];
+    max = Math.max(sum, max);
+  }
+  return max;
+}
