@@ -35,3 +35,18 @@ const fibDp = () => {
 
 const fastestFib = fibDp;
 fastestFib(8);
+
+//DP Fib
+const fibDp = (num) => {
+  if (num === 1) {
+    return 0;
+  }
+  if (num === 2) {
+    return 1;
+  }
+  let arr = [0, 1, 1];
+  for (let i = 3; i < num; i++) {
+    arr.push(arr[i - 1] + arr[i - 2]);
+  }
+  return arr.pop();
+};
