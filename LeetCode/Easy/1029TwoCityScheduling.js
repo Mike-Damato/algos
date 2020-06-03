@@ -29,3 +29,20 @@ var twoCitySchedCost = function (costs) {
   }
   return sum;
 };
+
+//alternate
+
+var twoCitySchedCost = function (costs) {
+  const half = costs.length / 2;
+  let sum = 0;
+  const sorted = costs.sort((a, b) => b[1] - b[0] - (a[1] - a[0]));
+  console.log(costs);
+  console.log(sorted);
+  for (let i = 0; i < half; i++) {
+    sum += sorted[i][0];
+  }
+  for (let i = half; i < sorted.length; i++) {
+    sum += sorted[i][1];
+  }
+  return sum;
+};
