@@ -1,4 +1,11 @@
 var reconstructQueue = function (people) {
+  // const compare = (a, b) => {
+  //   if (a[0] !== b[0]) {
+  //     return b[0] - a[0]
+  //   } else if (a[1] !== b[1]) {
+  //     return a[1] - b[1]
+  //   }
+  // }
   const compare = ([h1, k1], [h2, k2]) => {
     //sort by height descending
     if (h1 !== h2) {
