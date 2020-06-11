@@ -65,7 +65,63 @@ class SinglyLinkedList {
       return oldHead;
     }
   }
-  unshift(val) {}
+  unshift(val) {
+    const newHead = new Node(val);
+    if (!this.head) {
+      this.head = newHead;
+      this.tail = this.head;
+    } else {
+      newHead.next = this.head;
+      this.head = newHead;
+    }
+    this.length += 1;
+    return this;
+  }
+  get(idx) {
+    if (idx < 0 || idx >= this.length) {
+      return null;
+    }
+    let current = this.head;
+    let count = 0;
+    while (count !== idx) {
+      current = current.next;
+      count++;
+    }
+    return current;
+  }
+  set(val, idx) {
+    const foundNode = this.get(idx);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+  insert(idx, val) {
+    if (idx < 0 || idx > this.length) {
+      return false;
+    }
+    if (idx === 0) {
+      // the !! forces return to be a boolean opposed to the entire list
+      return !!this.unshift(val);
+      // this.unshift(val);
+      // return true;
+    }
+    if (idx === this.length) {
+      return !!this.push(val);
+      // this.push(val);
+      // return true;
+    }
+    const previousNode = this.get(idx - 1);
+    const newNode = new Node(val);
+    const temp = previousNode.next;
+    previousNode.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+    // newNode.next = previousNode.next;
+    // previousNode.next = newNode;
+  }
 }
 
 let myList = new SinglyLinkedList();
