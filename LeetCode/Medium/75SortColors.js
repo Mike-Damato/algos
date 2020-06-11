@@ -16,3 +16,26 @@ var sortColors = function (nums) {
   }
   return nums;
 };
+
+//Alternate
+var sortColors = function (nums) {
+  let zeros = 0;
+  let ones = 0;
+  let twos = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      zeros++;
+    } else if (nums[i] === 1) {
+      ones++;
+    } else {
+      twos++;
+    }
+  }
+
+  //array.fill(value, start, end)
+
+  nums = nums.fill(0, 0, zeros);
+  nums = nums.fill(1, zeros, zeros + ones);
+  nums = nums.fill(2, zeros + ones, zeros + ones + twos);
+  return nums;
+};
