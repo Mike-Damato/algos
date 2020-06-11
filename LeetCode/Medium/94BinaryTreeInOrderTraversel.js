@@ -34,3 +34,22 @@ var inorderTraversal = function (root) {
   }
   return res;
 };
+
+//Alternate Iterative
+var inorderTraversal = function (root) {
+  if (root === null) return [];
+  let current = root;
+  let stack = [];
+  let arr = [];
+  while (current || stack.length) {
+    if (current) {
+      stack.push(current);
+      current = current.left;
+    } else {
+      current = stack.pop();
+      arr.push(current.val);
+      current = current.right;
+    }
+  }
+  return arr;
+};
