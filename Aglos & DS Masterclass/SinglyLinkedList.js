@@ -30,6 +30,28 @@ class SinglyLinkedList {
       current = current.next;
     }
   }
+  pop() {
+    if (!this.head) {
+      return undefined;
+    } else {
+      let current = this.head;
+      let newTail = current;
+      while (current.next) {
+        newTail = current;
+        current = current.next;
+      }
+      this.tail = newTail;
+      this.tail.next = null;
+      this.length -= 1;
+      //if there was only 1 item and we removed it
+      if (this.length === 0) {
+        this.head = null;
+        this.tail = null;
+      }
+      //return the node that was removed
+      return current;
+    }
+  }
 }
 
 let myList = new SinglyLinkedList();
