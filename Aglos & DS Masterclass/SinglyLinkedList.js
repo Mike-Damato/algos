@@ -122,6 +122,36 @@ class SinglyLinkedList {
     // newNode.next = previousNode.next;
     // previousNode.next = newNode;
   }
+  remove(idx) {
+    if (idx < 0 || idx >= this.length) {
+      return null;
+    }
+    if (idx === this.length - 1) {
+      return this.pop();
+    }
+    if (idx === 0) {
+      return this.shift();
+    }
+    const previousNode = this.get(idx - 1);
+    const removedNode = previousNode.next;
+    previousNode.next = removedNode.next;
+    this.length -= 1;
+    return removedNode;
+  }
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let next = null;
+    let prev = null;
+    while (node) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 let myList = new SinglyLinkedList();
