@@ -5,6 +5,14 @@ class Node {
   }
 }
 
+/*
+Big O:
+Insertion - O(1)
+Removal - If head its O(1), anything else its O(n)
+Searching - O(n)
+Access - O(n)
+*/
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
