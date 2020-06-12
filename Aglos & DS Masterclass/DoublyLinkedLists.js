@@ -41,4 +41,20 @@ class DoublyLinkedList {
     this.length--;
     return removedNode;
   }
+  shift() {
+    if (!this.head) {
+      return null;
+    }
+    const removedNode = this.head;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = removedNode.next;
+      this.head.prev = null;
+      removedNode.next = null;
+    }
+    this.length--;
+    return removedNode;
+  }
 }
