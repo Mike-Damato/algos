@@ -134,8 +134,12 @@ class DoublyLinkedList {
       return this.pop();
     }
     const removedNode = this.get(idx);
-    removedNode.prev.next = removedNode.next;
-    removedNode.next.prev = removedNode.prev;
+    const prevNode = removedNode.prev;
+    const afterNode = removedNode.next;
+    prevNode.next = afterNode;
+    afterNode.prev = prevNode;
+    // removedNode.prev.next = removedNode.next;
+    // removedNode.next.prev = removedNode.prev;
     removedNode.next = null;
     removedNode.prev = null;
     this.length--;
