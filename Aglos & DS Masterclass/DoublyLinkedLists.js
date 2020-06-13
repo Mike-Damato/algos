@@ -102,7 +102,7 @@ class DoublyLinkedList {
     }
   }
   insert(idx, val) {
-    if (idx < 0 || idx >= this.length) {
+    if (idx < 0 || idx > this.length) {
       return false;
     }
     if (idx === 0) {
@@ -122,5 +122,23 @@ class DoublyLinkedList {
 
     this.length++;
     return true;
+  }
+  remove(idx) {
+    if (idx < 0 || idx >= this.length) {
+      return null;
+    }
+    if (idx === 0) {
+      return this.shift();
+    }
+    if (idx === this.length - 1) {
+      return this.pop();
+    }
+    const removedNode = this.get(idx);
+    removedNode.prev.next = removedNode.next;
+    removedNode.next.prev = removedNode.prev;
+    removedNode.next = null;
+    removedNode.prev = null;
+    this.length--;
+    return removedNode;
   }
 }
