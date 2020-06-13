@@ -92,4 +92,13 @@ class DoublyLinkedList {
     }
     return current;
   }
+  set(idx, val) {
+    const foundNode = this.get(idx);
+    if (foundNode !== null) {
+      foundNode.val = val;
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
