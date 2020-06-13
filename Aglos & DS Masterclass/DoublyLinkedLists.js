@@ -5,7 +5,13 @@ class Node {
     this.prev = null;
   }
 }
-
+/*
+Big O Time Complexity
+Insertion - O(1)
+Removal - O(1)
+Searching - O(N) [technically its O(N/2) which reduces to O(N)]
+Access - O(N)
+*/
 class DoublyLinkedList {
   constructor() {
     this.head = null;
