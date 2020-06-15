@@ -5,6 +5,13 @@ class Node {
   }
 }
 
+/*
+Big O
+Insertion - O(1)
+Removal - O(1)
+Searching - O(n) - Not important for Queues
+Access - O(n) - Not important for Queues
+*/
 class Queue {
   constructor() {
     this.first = null;
