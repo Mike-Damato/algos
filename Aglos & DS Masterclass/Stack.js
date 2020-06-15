@@ -4,7 +4,13 @@ class Node {
     this.next = null;
   }
 }
-
+/*
+Big O
+Insertion - O(1)
+Removal - O(1)
+Searching - O(N) - not important for stacks
+Access - O(N) - not important for stacks
+*/
 class Stack {
   constructor() {
     this.first = null;
