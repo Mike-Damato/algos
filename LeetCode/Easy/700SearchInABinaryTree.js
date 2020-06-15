@@ -13,9 +13,6 @@ var searchBST = function (root, val) {
 
 //Iterative
 const searchBST = (root, val) => {
-  if (root === null) {
-    return root;
-  }
   while (root !== null && root.val !== val) {
     if (root.val === val) {
       return root;
