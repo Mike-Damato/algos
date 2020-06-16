@@ -5,7 +5,11 @@ class Node {
     this.right = null;
   }
 }
-
+/*
+Big O
+Insertion - O(log n)
+Searching - O(log n)
+*/
 class BinarySearchTree {
   constructor() {
     this.root = null;
