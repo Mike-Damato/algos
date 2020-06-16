@@ -18,6 +18,9 @@ class BinarySearchTree {
     } else {
       let current = this.root;
       while (true) {
+        if (val === current.val) {
+          return null;
+        }
         //returning will break out of while loop
         //check if val is less or greater than
         if (val < current.val) {
@@ -37,6 +40,26 @@ class BinarySearchTree {
         }
       }
     }
+  }
+  find(val) {
+    if (this.root === null) {
+      return false;
+    }
+    let current = this.root;
+    let found = false;
+    while (current && !found) {
+      if (val < current.val) {
+        current = current.left;
+      } else if (Value > current.value) {
+        current = current.right;
+      } else {
+        found = true;
+      }
+    }
+    if (!found) {
+      return null;
+    }
+    return current;
   }
 }
 
