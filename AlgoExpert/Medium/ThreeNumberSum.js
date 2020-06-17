@@ -2,7 +2,7 @@ const threeNumberSum = (array, targetSum) => {
   array.sort((a, b) => a - b);
   let ans = [];
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length - 2; i++) {
     let currentNum = array[i];
     let left = i + 1;
     let right = array.length - 1;
