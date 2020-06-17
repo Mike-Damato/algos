@@ -82,6 +82,20 @@ class BinarySearchTree {
     }
     return result;
   }
+  DFSPreOrder(node) {
+    const data = [];
+    const traverse = (node) => {
+      data.push(node);
+      if (node.right) {
+        traverse(node.right);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+    };
+    traverse(this.root);
+    return data;
+  }
 }
 
 const myTree = new BinarySearchTree();
