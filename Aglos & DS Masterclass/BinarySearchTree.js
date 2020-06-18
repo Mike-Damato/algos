@@ -110,6 +110,20 @@ class BinarySearchTree {
     traverse(this.root);
     return data;
   }
+  DFSInOrder() {
+    const data = [];
+    const traverse = (node) => {
+      if (node.left) {
+        traverse(node.left);
+      }
+      data.push(node.val);
+      if (node.right) {
+        traverse(node.right);
+      }
+    };
+    traverse(this.root);
+    return data;
+  }
 }
 
 const myTree = new BinarySearchTree();
