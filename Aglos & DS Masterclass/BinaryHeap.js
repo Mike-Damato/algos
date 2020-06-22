@@ -1,3 +1,9 @@
+/*
+Insertion - O(log n)
+Removal - O(log N)
+Search - O(n)
+*/
+
 class MaxBinaryHeap {
   constructor() {
     this.vals = [];
