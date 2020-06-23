@@ -20,7 +20,7 @@ var countNodes = function (root) {
   }
   let queue = [root];
   let current;
-  let ans = [];
+  let ans = 0;
   while (queue.length) {
     current = queue.shift();
     if (current.left) {
@@ -29,9 +29,9 @@ var countNodes = function (root) {
     if (current.right) {
       queue.push(current.right);
     }
-    ans.push(current);
+    ans += 1;
   }
-  return ans.length;
+  return ans;
 };
 
 //Recurisve O(1) space
