@@ -2,7 +2,6 @@ var numTrees = function (n) {
   if (n <= 2) {
     return n;
   }
-  //This is our given
   let ans = [1, 1, 2];
   for (let i = 3; i <= n; i++) {
     let sum = 0;
