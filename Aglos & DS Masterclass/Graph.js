@@ -21,4 +21,11 @@ class Graph {
       this.adjList[v2] = this.adjList[v2].filter((vtx) => vtx !== v1);
     }
   }
+  removeVertex(vtx) {
+    while (this.adjList[vtx].length) {
+      const adjVtx = this.adjList[vtx].pop();
+      this.removeEdge(vtx, adjVtx);
+    }
+    delete this.adjList[vtx];
+  }
 }
