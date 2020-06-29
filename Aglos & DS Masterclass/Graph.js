@@ -19,13 +19,19 @@ class Graph {
     if (this.adjList.hasOwnProperty(v1) && this.adjList.hasOwnProperty(v2)) {
       this.adjList[v1] = this.adjList[v1].filter((vtx) => vtx !== v2);
       this.adjList[v2] = this.adjList[v2].filter((vtx) => vtx !== v1);
+    } else {
+      return undefined;
     }
   }
   removeVertex(vtx) {
-    while (this.adjList[vtx].length) {
-      const adjVtx = this.adjList[vtx].pop();
-      this.removeEdge(vtx, adjVtx);
+    if (this.adjList.hasOwnProperty(vtx)) {
+      while (this.adjList[vtx].length) {
+        const adjVtx = this.adjList[vtx].pop();
+        this.removeEdge(vtx, adjVtx);
+      }
+      delete this.adjList[vtx];
+    } else {
+      return undefined;
     }
-    delete this.adjList[vtx];
   }
 }
