@@ -56,4 +56,24 @@ class Graph {
     dfs(start);
     return result;
   }
+  dfsIterative(start) {
+    const stack = [start];
+    const result = [];
+    const visited = {};
+    let currentVtx;
+
+    visited[start] = true;
+    while (stack.length) {
+      currentVtx = stack.pop();
+      result.push(currentVtx);
+
+      this.adjList[currentVtx].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          stack.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
 }
