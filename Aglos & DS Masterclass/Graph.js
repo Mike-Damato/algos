@@ -34,4 +34,26 @@ class Graph {
       return undefined;
     }
   }
+  dfsRecursive(start) {
+    let result = [];
+    let visited = {};
+    const adjList = this.adjList;
+
+    const dfs = (vtx) => {
+      if (!vtx) {
+        return null;
+      }
+      visited[vtx] = true;
+      result.push(vtx);
+      adjList[vtx].forEach((neighbor) => {
+        //check if the neighbor has not been visited
+        if (!visited[neighbor]) {
+          return dfs(neighbor);
+        }
+      });
+    };
+
+    dfs(start);
+    return result;
+  }
 }
