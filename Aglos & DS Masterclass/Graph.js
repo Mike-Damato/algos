@@ -76,4 +76,24 @@ class Graph {
     }
     return result;
   }
+  bfs(start) {
+    const queue = [start];
+    const result = [];
+    const visited = {};
+    let currentVtx;
+
+    visited[start] = true;
+    while (queue.length) {
+      currentVtx = queue.shift();
+      result.push(currentVtx);
+
+      this.adjList[currentVtx].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
 }
