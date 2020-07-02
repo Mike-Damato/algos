@@ -1,19 +1,19 @@
 var getAllElements = function (root1, root2) {
   let arr = [];
-  const dfsPreOrder = (node) => {
+  const dfs = (node) => {
     if (!node) {
       return null;
     }
     if (node.left) {
-      dfsPreOrder(node.left);
+      dfs(node.left);
     }
     arr.push(node.val);
     if (node.right) {
-      dfsPreOrder(node.right);
+      dfs(node.right);
     }
     return arr;
   };
-  dfsPreOrder(root1);
-  dfsPreOrder(root2);
+  dfs(root1);
+  dfs(root2);
   return arr.sort((a, b) => a - b);
 };
