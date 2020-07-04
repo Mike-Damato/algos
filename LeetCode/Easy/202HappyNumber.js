@@ -10,7 +10,6 @@ var isHappy = function (n, count = 0) {
 
     if (sum === 1) {
       ans = true;
-      // return ans;
     } else {
       count++;
       return isHappy(sum, count);
