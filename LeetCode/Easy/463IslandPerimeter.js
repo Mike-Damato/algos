@@ -33,3 +33,40 @@ const dfs = (grid, i, j, perimeter = 0) => {
 
   return perimeter;
 };
+
+//Alternate
+const islandPerimeter = (grid) => {
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+      if (grid[i][j] === 1) {
+        return dfs(grid, i, j);
+      }
+    }
+  }
+};
+
+const dfs = (grid, i, j) => {
+  let perimeter = 0;
+  if (
+    i < 0 ||
+    i >= grid.length ||
+    j < 0 ||
+    j >= grid[i].length ||
+    grid[i][j] === 0
+  ) {
+    return 1;
+  }
+
+  //if visited
+  if (grid[i][j] === 2) {
+    return 0;
+  }
+
+  grid[i][j] = 2;
+
+  perimeter += dfs(grid, i - 1, j);
+  perimeter += dfs(grid, i + 1, j);
+  perimeter += dfs(grid, i, j + 1);
+  perimeter += dfs(grid, i, j - 1);
+  return perimeter;
+};
