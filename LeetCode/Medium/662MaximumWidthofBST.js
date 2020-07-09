@@ -27,3 +27,31 @@ var widthOfBinaryTree = function (root) {
     queue = level;
   }
 };
+
+//Alternate Solution
+var widthOfBinaryTree = function (root) {
+  if (root == null) return 0;
+  let max = 0;
+  let queue = [[root, 0]];
+  while (queue.length) {
+    let size = queue.length;
+    let currentLevel = [];
+    for (let i = 0; i < size; i++) {
+      let [node, position] = queue.shift();
+      currentLevel.push([node, position]);
+      if (node.left) {
+        queue.push([node.left, position * 2]);
+      }
+      if (node.right) {
+        queue.push([node.right, position * 2 + 1]);
+      }
+    }
+
+    let currLevelWidth =
+      currentLevel.length === 1
+        ? 1
+        : currentLevel[currentLevel.length - 1][1] - currentLevel[0][1] + 1;
+    max = Math.max(max, currLevelWidth);
+  }
+  return max;
+};
