@@ -20,6 +20,3 @@ const pivotHelper = (array, start = 0, end = array.length - 1) => {
   [array[start], array[swapIdx]] = [array[swapIdx], array[start]];
   return swapIdx;
 };
-
-// Do not edit the line below.
-exports.quickSort = quickSort;
