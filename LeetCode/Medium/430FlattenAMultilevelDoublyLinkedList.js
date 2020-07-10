@@ -23,3 +23,26 @@ const insertAfter = (node1, node2) => {
     next1.prev = next2;
   }
 };
+
+//Alternate Recursion
+var flatten = function (head) {
+  if (head === null) return null;
+  let curr = head;
+  while (curr) {
+    if (curr.child) {
+      let nextPtr = curr.next;
+      curr.next = flatten(curr.child);
+      curr.next.prev = curr;
+      curr.child = null;
+      while (curr.next !== null) {
+        curr = curr.next;
+      }
+      curr.next = nextPtr;
+      if (nextPtr) {
+        nextPtr.prev = curr;
+      }
+    }
+    curr = curr.next;
+  }
+  return head;
+};
