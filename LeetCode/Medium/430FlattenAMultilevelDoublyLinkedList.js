@@ -46,3 +46,28 @@ var flatten = function (head) {
   }
   return head;
 };
+
+//Iterative
+
+var flatten = function (head) {
+  if (!head) return null;
+  let current = head;
+  let stack = [];
+  while (current) {
+    if (current.child) {
+      if (current.next) {
+        stack.push(current.next);
+      }
+      current.next = current.child;
+      current.child.prev = current;
+      current.child = null;
+    }
+    if (!current.next && stack.length > 0) {
+      let nextNode = stack.pop();
+      current.next = nextNode;
+      nextNode.prev = current;
+    }
+    current = current.next;
+  }
+  return head;
+};
