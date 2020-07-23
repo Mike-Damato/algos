@@ -10,8 +10,7 @@ var removeNthFromEnd = function (head, n) {
   if (second === null) {
     return first.next;
   }
-  //set up pointer to head
-  let ans = head;
+
   while (second.next !== null) {
     first = first.next;
     second = second.next;
@@ -19,5 +18,5 @@ var removeNthFromEnd = function (head, n) {
   //first.next -> NODE TO REMOVE
   //so to get rid of the node just makes first.next skip the one we want to remove
   first.next = first.next.next;
-  return ans;
+  return head;
 };
