@@ -22,6 +22,8 @@ const swap = (arr, i, j) => {
   return arr;
 };
 
+//Alternate
+
 function getPermutations(array) {
   // Write your code here.
   const perms = [];
