@@ -12,7 +12,7 @@ var maxAreaOfIsland = function (grid) {
   return maxArea;
 };
 
-const dfs = (grid, i, j, area = 1) => {
+const dfs = (grid, i, j) => {
   if (
     i < 0 ||
     i >= grid.length ||
@@ -22,7 +22,7 @@ const dfs = (grid, i, j, area = 1) => {
   ) {
     return 0;
   }
-  // let area = 1;
+  let area = 1;
   grid[i][j] = 0;
 
   area += dfs(grid, i - 1, j);
@@ -30,6 +30,5 @@ const dfs = (grid, i, j, area = 1) => {
   area += dfs(grid, i, j - 1);
   area += dfs(grid, i, j + 1);
 
-  // console.log(area)
   return area;
 };
