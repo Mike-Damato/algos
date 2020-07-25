@@ -8,7 +8,8 @@ var findMin = function (nums) {
     while (nums[left] === nums[right]) {
       right--;
     }
-    mid = Math.floor((left + right) / 2);
+    //Avoid overflow!
+    mid = left + Math.floor((right - left) / 2);
 
     if (nums[mid] > nums[right]) {
       left = mid + 1;
