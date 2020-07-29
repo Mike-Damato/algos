@@ -7,3 +7,16 @@ var maxProfit = function (prices) {
   }
   return profit;
 };
+
+//Alternate
+var maxProfit = function (prices) {
+  let max = 0;
+  let min = Infinity;
+
+  for (let i = 0; i < prices.length; i++) {
+    min = Math.min(prices[i], min);
+    let profit = prices[i] - min;
+    max = Math.max(max, profit);
+  }
+  return max;
+};
