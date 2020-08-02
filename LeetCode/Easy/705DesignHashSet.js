@@ -1,5 +1,5 @@
 class MyHashSet {
-  constructor(size) {
+  constructor() {
     this.hash = {};
   }
   add(key) {
@@ -20,5 +20,37 @@ class MyHashSet {
     } else {
       return false;
     }
+  }
+}
+
+//Alternate
+class MyHashSet {
+  constructor() {
+    this.set = [];
+  }
+  add(key) {
+    let found = false;
+    for (let i = 0; i < this.set.length; i++) {
+      if (this.set[i] === key) {
+        found = true;
+        break;
+      }
+    }
+    if (found === false) {
+      this.set.push(key);
+    }
+  }
+
+  remove(key) {
+    for (let i = 0; i < this.set.length; i++) {
+      if (this.set[i] === key) {
+        this.set.splice(i, 1);
+        break;
+      }
+    }
+  }
+
+  contains(key) {
+    return this.set.includes(key);
   }
 }
