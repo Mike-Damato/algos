@@ -5,11 +5,10 @@ class MinStack {
   }
 
   push(x) {
-    let newMinMax = { min: x, max: x };
+    let newMinMax = { min: x };
     if (this.minStack.length > 0) {
       let lastMinMax = this.minStack[this.minStack.length - 1];
       newMinMax.min = Math.min(lastMinMax.min, x);
-      newMinMax.max = Math.max(lastMinMax.max, x);
     }
     this.minStack.push(newMinMax);
     this.stack.push(x);

@@ -70,9 +70,8 @@ const verticalTraversal = (root) => {
   for (let [x, y, val] of tree) {
     if (!map.has(x)) {
       map.set(x, []);
-    } else {
-      map.get(x).push(val);
     }
+    map.get(x).push(val);
   }
   return [...map.values()];
 };
