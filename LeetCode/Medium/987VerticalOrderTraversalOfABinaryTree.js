@@ -1,3 +1,5 @@
+const { abort } = require('process');
+
 var verticalTraversal = function (root) {
   let hash = {};
 
@@ -35,4 +37,42 @@ var verticalTraversal = function (root) {
     ans.push(temp);
   }
   return ans;
+};
+
+//Alternate
+
+const verticalTraversal = (root) => {
+  const tree = [];
+
+  const dfs = (node, x, y) => {
+    if (!node) {
+      return;
+    }
+    tree.push([x, y, node.val]);
+    //it will be y-1 for both because we are going down
+    dfs(node.left, x - 1, y - 1);
+    dfs(node.right, x + 1, y - 1);
+  };
+
+  dfs(root, 0, 0);
+
+  tree.sort((a, b) => {
+    let [xA, yA, valA] = a;
+    let [xB, yB, valB] = b;
+
+    if (xA !== xB) return xA - xB;
+    if (yA !== yB) return yB - yA;
+    return valA - valB;
+  });
+
+  let map = new Map();
+
+  for (let [x, y, val] of tree) {
+    if (!map.has(x)) {
+      map.set(x, []);
+    } else {
+      map.get(x).push(val);
+    }
+  }
+  return [...map.values()];
 };
