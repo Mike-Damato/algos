@@ -3,7 +3,6 @@ var ladderLength = function (beginWord, endWord, wordList) {
   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let step = 1;
   let queue = [beginWord];
-  // let size;
 
   while (queue.length) {
     let nextQ = [];
