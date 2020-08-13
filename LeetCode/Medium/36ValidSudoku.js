@@ -3,7 +3,7 @@ var isValidSudoku = function (board) {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
       let val = board[i][j];
-      if (board[i][j] !== '.') {
+      if (val !== '.') {
         let rowCell = `row: ${i} ${val}`;
         let colCell = `col: ${j} ${val}`;
         let boxCell = `box: ${Math.floor(i / 3)}-${Math.floor(j / 3)} ${val}`;
