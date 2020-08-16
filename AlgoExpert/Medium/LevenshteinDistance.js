@@ -63,7 +63,6 @@ const levenshteinDistance = (str1, str2) => {
     : oddEdits[small.length];
 };
 
-//we want min of:
 /*
 if equal character dp[r-1][c-1]
 
