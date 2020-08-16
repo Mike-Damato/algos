@@ -16,9 +16,9 @@ const createJobGraph = (jobs, deps) => {
 
 const getOrderedJobs = (graph) => {
   let orderedJobs = [];
-  let nodes = graph.nodes;
+  let { nodes } = graph;
   let current;
-  while (nodes) {
+  while (nodes.length) {
     current = nodes.pop();
     let containsCycle = dfs(current, orderedJobs);
     if (containsCycle) {
@@ -42,8 +42,9 @@ const dfs = (node, orderedJobs) => {
       return true;
     }
   }
-  node.visted = true;
+  node.visited = true;
   node.visiting = false;
+
   orderedJobs.push(node.job);
   return false;
 };
