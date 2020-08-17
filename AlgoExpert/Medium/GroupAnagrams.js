@@ -1,11 +1,13 @@
 function groupAnagrams(words) {
   // Write your code here.
-  let map = new Map();
+  let hash = {};
   for (const word of words) {
-    let sortedWord = word.split('').sort().join();
-    if (map.has(sortedWord)) {
-      map.set(map.get(sortedWord).push(sortedWord));
+    let sortedWord = word.split('').sort().join('');
+    if (hash.hasOwnProperty(sortedWord)) {
+      hash[sortedWord].push(word);
+    } else {
+      hash[sortedWord] = [word];
     }
-    map.set(sortedWord, [word]);
   }
+  return Object.values(hash);
 }
