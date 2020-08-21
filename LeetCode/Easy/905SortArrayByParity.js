@@ -1,12 +1,12 @@
-var sortArrayByParity = function (A) {
-  let evensArr = [];
-  let oddsArr = [];
-  for (let i = 0; i < A.length; i++) {
-    if (A[i] % 2 === 0) {
-      evensArr.push(A[i]);
+var sortArrayByParity = function (arr) {
+  let even = [];
+  let odd = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      even.push(arr[i]);
     } else {
-      oddsArr.push(A[i]);
+      odd.push(arr[i]);
     }
   }
-  return evensArr.concat(oddsArr);
+  return even.concat(odd);
 };
