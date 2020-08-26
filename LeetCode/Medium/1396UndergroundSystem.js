@@ -49,10 +49,6 @@ class UndergroundSystem {
   getAverageTime(startStation, endStation) {
     let route = startStation + ' to ' + endStation;
     let sum = this.trips[route].reduce((a, b) => a + b, 0);
-
-    // for(let i = 0; i < this.trips[route].length; i++){
-    //     sum += this.trips[route][i]
-    // }
     return sum / this.trips[route].length;
   }
 }
