@@ -20,3 +20,30 @@ const connect = (root) => {
   }
   return root;
 };
+
+//Alternate
+const connect = (root) => {
+  if (!root) {
+    return null;
+  }
+
+  let queue = [root];
+  let size, current;
+  while (queue.length) {
+    size = queue.length;
+    for (let i = 0; i < size; i++) {
+      current = queue.shift();
+
+      if (i < size - 1) {
+        current.next = queue[0];
+      }
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.right) {
+        queue.push(current.right);
+      }
+    }
+  }
+  return root;
+};
