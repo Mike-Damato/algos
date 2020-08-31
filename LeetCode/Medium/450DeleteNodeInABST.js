@@ -12,7 +12,7 @@ var deleteNode = function (root, key) {
       return root.left;
     }
 
-    const nextNode = helper(root.right);
+    const nextNode = getMostLeft(root.right);
     root.val = nextNode.val;
     root.right = deleteNode(root.right, nextNode.val);
     return root;
@@ -28,7 +28,7 @@ var deleteNode = function (root, key) {
   return root;
 };
 
-const helper = (node) => {
+const getMostLeft = (node) => {
   if (!node) {
     return null;
   }

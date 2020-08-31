@@ -17,3 +17,19 @@ var minMeetingRooms = function (intervals) {
   }
   return roomTime.length;
 };
+
+//Alternate
+const minMeetingRooms = (intervals) => {
+  let start = [...intervals].sort((a, b) => a[0] - b[0]);
+  let end = intervals.sort((a, b) => a[1] - b[1]);
+  let rooms = 0;
+  let endPtr = 0;
+  for (let i = 0; i < intervals.length; i++) {
+    if (start[i][0] < end[endPtr][1]) {
+      rooms++;
+    } else {
+      endPtr++;
+    }
+  }
+  return rooms;
+};
