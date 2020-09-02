@@ -19,6 +19,8 @@ var flatten = function (root) {
 //Recursive
 const flatten = (root) => {
   let prev = null;
+  //Postorder of right, left, root
+  // set left child to null & set right child to the previous node
   const flattenHelper = (node) => {
     if (!node) {
       return null;
@@ -52,4 +54,25 @@ const flatten = (root) => {
     }
     current = current.right;
   }
+};
+
+//alternate recursive
+const flatten = (root) => {
+  const helper = (node) => {
+    if (!node) {
+      return null;
+    }
+    if (!node.left && !node.right) {
+      return node;
+    }
+    let rightTail = helper(node.right);
+    let leftTail = helper(node.left);
+    if (node.left) {
+      leftTail.right = node.right;
+      node.right = node.left;
+      node.left = null;
+    }
+    return rightTail ? rightTail : leftTail;
+  };
+  helper(root);
 };
