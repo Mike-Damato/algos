@@ -34,20 +34,22 @@ const flatten = (root) => {
 };
 
 //Constant Space
-var flatten = function (root) {
-  if (root === null) {
+const flatten = (root) => {
+  if (!root) {
     return null;
   }
-  let stack = [root];
-  while (stack.length) {
-    let current = stack.pop();
-    if (current.right) {
-      stack.push(current.right);
-    }
+  let current = root;
+  let rightMost;
+  while (current) {
     if (current.left) {
-      stack.push(current.left);
+      rightMost = current.left;
+      while (rightMost.right) {
+        rightMost = rightMost.right;
+      }
+      rightMost.right = current.right;
+      current.right = current.left;
+      current.left = null;
     }
-    current.right = stack[stack.length - 1];
-    current.left = null;
+    current = current.right;
   }
 };
