@@ -6,17 +6,17 @@ const verticalOrder = (root) => {
   let map = new Map();
   let ans = [];
   while (queue.length) {
-    let [node, level] = queue.shift();
-    if (!map.has(level)) {
-      map.set(level, [node.val]);
+    let [node, col] = queue.shift();
+    if (!map.has(col)) {
+      map.set(col, [node.val]);
     } else {
-      map.get(level).push(node.val);
+      map.get(col).push(node.val);
     }
     if (node.left) {
-      queue.push([node.left, level - 1]);
+      queue.push([node.left, col - 1]);
     }
     if (node.right) {
-      queue.push([node.right, level + 1]);
+      queue.push([node.right, col + 1]);
     }
   }
   let keys = [...map.keys()].sort((a, b) => a - b);
