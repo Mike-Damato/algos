@@ -20,7 +20,6 @@ const isSymmetric = (root) => {
   }
 
   let queue = [root, root];
-  let size, current;
   let node1, node2;
   while (queue.length) {
     node1 = queue.shift();
