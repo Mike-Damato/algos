@@ -24,3 +24,32 @@ const getLongestPalindromeFrom = (string, start, end) => {
   }
   return [start + 1, end];
 };
+
+//O(N^3) Approach
+function longestPalindromicSubstring(string) {
+  // Write your code here.
+  let longestStr = '';
+  let currentStr;
+  for (let i = 0; i < string.length; i++) {
+    for (let j = 0; j < string.length; j++) {
+      currentStr = string.slice(i, j + 1);
+      if (currentStr.length > longestStr.length && isPalindrome(currentStr)) {
+        longestStr = currentStr;
+      }
+    }
+  }
+  return longestStr;
+}
+
+const isPalindrome = (str) => {
+  let left = 0;
+  let right = str.length - 1;
+  while (left < right) {
+    if (str[left] !== str[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+  return true;
+};
