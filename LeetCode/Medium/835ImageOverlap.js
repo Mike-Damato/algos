@@ -12,7 +12,7 @@ var largestOverlap = function (A, B) {
       }
     }
   }
-  let map = new Map(); // {dx#dy : count}
+  let map = new Map();
   for (const coordA of aArr) {
     for (const coordB of bArr) {
       let dx = coordB[0] - coordA[0];
