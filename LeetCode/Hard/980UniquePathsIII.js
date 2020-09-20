@@ -2,13 +2,13 @@ var uniquePathsIII = function (grid) {
   if (!grid.length || !grid[0].length) {
     return 0;
   }
-  let start = [];
+  let start = [0, 0];
   let left = 0;
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[i][j] === 1) {
-        start.push(i);
-        start.push(j);
+        start[0] = i;
+        start[1] = j;
       } else if (grid[i][j] === 0) {
         left++;
       }
