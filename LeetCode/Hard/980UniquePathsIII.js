@@ -40,12 +40,12 @@ const dfs = (grid, i, j, left) => {
   //Mark visited
   grid[i][j] = -1;
 
-  let top = dfs(grid, i - 1, j, left - 1);
-  let bottom = dfs(grid, i + 1, j, left - 1);
-  let left = dfs(grid, i, j - 1, left - 1);
-  let right = dfs(grid, i, j + 1, left - 1);
+  let t = dfs(grid, i - 1, j, left - 1);
+  let b = dfs(grid, i + 1, j, left - 1);
+  let l = dfs(grid, i, j - 1, left - 1);
+  let r = dfs(grid, i, j + 1, left - 1);
 
   grid[i][j] = temp;
 
-  return top + bottom + left + right;
+  return t + b + l + r;
 };
