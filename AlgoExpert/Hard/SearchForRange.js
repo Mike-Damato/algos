@@ -1,5 +1,4 @@
 function searchForRange(array, target) {
-  // Write your code here.
   let range = [-1, -1];
   let left = 0;
   let right = array.length - 1;
