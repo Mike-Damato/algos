@@ -168,7 +168,6 @@ const getCoordsTable = (coords) => {
     let coordString = coordToString(coord);
     coordsTable.add(coordString);
   }
-  console.log(coordsTable);
   return coordsTable;
 };
 
