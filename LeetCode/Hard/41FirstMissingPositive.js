@@ -12,3 +12,23 @@ var firstMissingPositive = function (nums) {
     if (!map.has(i)) return i;
   }
 };
+
+//Optimized to use constant space;
+const firstMissingPositive = (nums) => {
+  nums = nums.filter((num) => num > 0);
+
+  for (let i = 0; i <= nums.length; i++) {
+    let abs = Math.abs(nums[i]);
+    if (nums[abs - 1] > 0) {
+      nums[abs - 1] *= -1;
+    }
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > 0) {
+      return i + 1;
+    }
+  }
+
+  return nums.length + 1;
+};
