@@ -55,8 +55,3 @@ const getCountsAndFirstYPos = (pattern, counts) => {
   }
   return firstYPos;
 };
-
-// const main = (string) => {
-//   let xLength
-//   let yLength = string.length - xLength *
-// };
