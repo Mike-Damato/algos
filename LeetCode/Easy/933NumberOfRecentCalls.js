@@ -28,3 +28,31 @@ class RecentCounter {
     return this.reqs.length;
   }
 }
+
+//Optimized further using binary search
+class RecentCounter {
+  constructor() {
+    this.reqs = [];
+    this.time = 3000;
+  }
+  ping(t) {
+    this.reqs.push(t);
+    return this.reqs.length - this.binarySearch(t);
+  }
+
+  binarySearch(t) {
+    let left = 0;
+    let right = this.reqs.length - 1;
+    let target = t - this.time;
+    let mid;
+    while (left < right) {
+      mid = left + Math.floor((right - left) / 2);
+      if (this.reqs[mid] >= target) {
+        right = mid;
+      } else {
+        left = mid + 1;
+      }
+    }
+    return left;
+  }
+}
