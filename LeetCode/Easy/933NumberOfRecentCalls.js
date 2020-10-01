@@ -45,10 +45,10 @@ class RecentCounter {
     let right = this.reqs.length - 1;
     let target = t - this.time;
     let mid;
-    while (left < right) {
+    while (left <= right) {
       mid = left + Math.floor((right - left) / 2);
       if (this.reqs[mid] >= target) {
-        right = mid;
+        right = mid - 1;
       } else {
         left = mid + 1;
       }
