@@ -1,6 +1,6 @@
 const leafSimilar = (root1, root2) => {
   const dfs = (node, arr) => {
-    if (!node) return;
+    if (!node) return arr;
 
     if (!node.left && !node.right) {
       arr.push(node.val);
