@@ -1,7 +1,14 @@
-const caesarCipherEncryptor = (string, key) => {
-  // Write your code here.
-  const alphabet = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz';
-  key = key % 26;
-  const index = alphabet.indexOf(string[0]) + key;
-  return alphabet.slice(index, index + string.length);
+function caesarCipherEncryptor(string, key) {
+  const newLetters = [];
+  const newKey = key % 26;
+  const alpha = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  for (const letter of string) {
+    newLetters.push(getNewLetter(letter, newKey, alpha));
+  }
+  return newLetters.join('');
+}
+
+const getNewLetter = (letter, key, alpha) => {
+  const newLetterCode = alpha.indexOf(letter) + key;
+  return alpha[newLetterCode % 26];
 };
