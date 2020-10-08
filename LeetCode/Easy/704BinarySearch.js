@@ -13,3 +13,47 @@ var search = function (nums, target) {
   }
   return -1;
 };
+
+//Recursive
+var search = function (nums, target) {
+  return binarySearch(0, nums.length - 1, nums, target);
+};
+
+const binarySearch = (left, right, arr, target) => {
+  if (left > right) return -1;
+  let mid = getMid(left, right);
+  if (arr[mid] === target) {
+    return mid;
+  } else if (arr[mid] > target) {
+    return binarySearch(left, mid - 1, arr, target);
+  } else {
+    return binarySearch(mid + 1, right, arr, target);
+  }
+};
+
+const getMid = (left, right) => {
+  return left + Math.floor((right - left) / 2);
+};
+
+//Even more functional
+const search = (nums, target) => {
+  return binarySearch(0, nums.length - 1, nums, target);
+};
+
+const binarySearch = (left, right, arr, target) => {
+  while (left <= right) {
+    let mid = getMid(left, right);
+    if (arr[mid] === target) {
+      return mid;
+    } else if (arr[mid] > target) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return -1;
+};
+
+const getMid = (left, right) => {
+  return left + Math.floor((right - left) / 2);
+};
