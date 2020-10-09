@@ -7,7 +7,7 @@ class TwoSum {
   }
   find(val) {
     let diff;
-    for (const [key, count] of [...this.map.entries()]) {
+    for (const [key, count] of this.map) {
       diff = val - key;
       if (this.map.has(diff) && (diff !== key || 1 < count)) {
         return true;
