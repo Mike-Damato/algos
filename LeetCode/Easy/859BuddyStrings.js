@@ -2,7 +2,6 @@ var buddyStrings = function (A, B) {
   if (A.length !== B.length) return false;
   if (A === B) {
     let set = new Set([...A]);
-    console.log(set);
     return set.size < A.length;
   }
 
