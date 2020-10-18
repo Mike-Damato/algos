@@ -29,3 +29,15 @@ class ParkingSystem {
     return this.car[carType - 1]-- > 0;
   }
 }
+
+/*
+Python Solution
+class ParkingSystem(object):
+
+    def __init__(self, big, medium, small):
+        self.car = [big, medium, small]
+    def addCar(self, carType):
+        self.car[carType-1] -= 1;
+        return self.car[carType - 1] >= 0;
+
+*/
