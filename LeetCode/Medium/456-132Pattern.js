@@ -11,3 +11,19 @@ var find132pattern = function (nums) {
   }
   return false;
 };
+
+//Optimized to O(N) using a stack
+const find132pattern = (nums) => {
+  if (!nums.length || nums.length < 3) return false;
+  let [stack, k] = [[], -Infinity];
+  for (let i = nums.length; i >= 0; i--) {
+    if (nums[i] < k) {
+      return true;
+    }
+    while (stack[stack.length - 1] < nums[i]) {
+      k = stack.pop();
+    }
+    stack.push(nums[i]);
+  }
+  return false;
+};
