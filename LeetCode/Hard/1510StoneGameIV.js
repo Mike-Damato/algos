@@ -1,0 +1,14 @@
+var winnerSquareGame = function (n, memo = {}) {
+  if (memo.hasOwnProperty(n)) {
+    return memo[n];
+  }
+  for (let i = 1; i < 316; i++) {
+    const square = i * i;
+    if (square > n) break;
+    let p2 = n - square;
+    if (!winnerSquareGame(p2, memo)) {
+      return (memo[n] = true);
+    }
+  }
+  return (memo[n] = false);
+};
