@@ -3,10 +3,12 @@ var winnerSquareGame = function (n, memo = {}) {
   for (let i = 1; i <= n; i++) {
     const square = i * i;
     if (square > n) break;
-    let p2 = n - square;
+    const p2 = n - square;
     if (!winnerSquareGame(p2, memo)) {
-      return (memo[n] = true);
+      memo[n] = true;
+      return memo[n];
     }
   }
-  return (memo[n] = false);
+  memo[n] = false;
+  return memo[n];
 };
