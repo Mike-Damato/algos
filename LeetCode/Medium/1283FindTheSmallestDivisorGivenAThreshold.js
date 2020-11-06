@@ -1,6 +1,6 @@
 var smallestDivisor = function (nums, threshold) {
   let min = 1;
-  let max = nums.reduce((a, b) => a + b, 0);
+  let max = nums[nums.length - 1];
   return binarySearch(min, max, nums, threshold);
 };
 
