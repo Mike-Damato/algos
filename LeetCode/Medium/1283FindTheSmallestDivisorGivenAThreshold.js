@@ -5,7 +5,7 @@ var smallestDivisor = function (nums, threshold) {
 };
 
 const binarySearch = (left, right, arr, target) => {
-  while (left < right) {
+  while (left <= right) {
     let mid = left + Math.floor((right - left) / 2);
 
     let currentDiv = arr.reduce((a, b) => {
@@ -15,7 +15,7 @@ const binarySearch = (left, right, arr, target) => {
     if (currentDiv > target) {
       left = mid + 1;
     } else {
-      right = mid;
+      right = mid - 1;
     }
   }
   return left;
