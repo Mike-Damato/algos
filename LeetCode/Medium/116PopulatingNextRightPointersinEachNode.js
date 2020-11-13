@@ -21,3 +21,28 @@ var connect = function (root) {
   }
   return root;
 };
+
+//Alternate
+var connect = function (root) {
+  if (!root) return null;
+
+  let queue = [root];
+  let current, size;
+  while (queue.length) {
+    size = queue.length;
+    for (let i = 0; i < size; i++) {
+      current = queue.shift();
+
+      if (i < size - 1) {
+        current.next = queue[0];
+      }
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.right) {
+        queue.push(current.right);
+      }
+    }
+  }
+  return root;
+};
