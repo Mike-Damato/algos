@@ -6,7 +6,6 @@ class LinkedList {
 }
 
 function linkedListPalindrome(head) {
-  // Write your code here.
   let slow = head;
   let fast = head;
   while (fast && fast.next) {
