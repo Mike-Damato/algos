@@ -29,3 +29,22 @@ var merge = function (intervals) {
   }
   return ans;
 };
+
+//Additonal Solution
+const merge = (intervals) => {
+  if (!intervals.length) {
+    return [];
+  }
+  let sorted = intervals.sort((a, b) => a[0] - b[0]);
+  let ans = [sorted[0]];
+  let prev;
+  for (let i = 1; i < sorted.length; i++) {
+    prev = ans[ans.length - 1];
+    if (sorted[i][0] > prev[1]) {
+      ans.push(sorted[i]);
+    } else {
+      prev[1] = Math.max(prev[1], sorted[i][1]);
+    }
+  }
+  return ans;
+};
