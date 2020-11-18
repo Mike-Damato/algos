@@ -14,3 +14,32 @@ function threeNumberSort(array, order) {
 }
 
 //Optimized
+function threeNumberSort(array, order) {
+  const firstVal = order[0];
+  const secondVal = order[1];
+
+  let p1 = 0;
+  let p2 = 0;
+  let p3 = array.length - 1;
+
+  while (p2 <= p3) {
+    const val = array[p2];
+
+    if (val === firstVal) {
+      swap(array, p1, p2);
+      p1++;
+      p2++;
+    } else if (val === secondVal) {
+      p2++;
+    } else {
+      swap(array, p2, p3);
+      p3--;
+    }
+  }
+  return array;
+}
+
+const swap = (arr, i, j) => {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+  return arr;
+};
