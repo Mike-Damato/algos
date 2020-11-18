@@ -12,3 +12,20 @@ var merge = function (intervals) {
   }
   return sorted;
 };
+
+//Alternate Solution
+var merge = function (intervals) {
+  const sorted = intervals.sort((a, b) => a[0] - b[0]);
+  let prev = intervals[0];
+  const ans = [prev];
+  for (let i = 1; i < sorted.length; i++) {
+    let current = sorted[i];
+    if (prev[1] >= current[0]) {
+      prev[1] = Math.max(prev[1], current[1]);
+    } else {
+      ans.push(current);
+      prev = current;
+    }
+  }
+  return ans;
+};
