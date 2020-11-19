@@ -12,6 +12,7 @@ const fourSum = (arr, target) => {
 
       let left = j + 1;
       let right = arr.length - 1;
+
       while (left < right) {
         let sum = arr[i] + arr[j] + arr[left] + arr[right];
         if (sum < target) {
