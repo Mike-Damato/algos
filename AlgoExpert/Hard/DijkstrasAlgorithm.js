@@ -57,6 +57,7 @@ function dijkstrasAlgorithm(start, edges) {
         queue.push([target, ans[target]]);
       }
     }
+    // queue.sort((a,b) => a[1]-b[1])
   }
   return ans.map((val) => (val === Infinity ? -1 : val));
 }
