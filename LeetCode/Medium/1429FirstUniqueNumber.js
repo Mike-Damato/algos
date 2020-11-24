@@ -1,7 +1,6 @@
 class FirstUnique {
   constructor(nums) {
     this.map = new Map();
-
     for (const num of nums) {
       this.map.set(num, (this.map.get(num) || 0) + 1);
     }
