@@ -28,3 +28,28 @@ var canPartition = function (nums) {
 
   return partitionHelper(nums, 0, 0, total, {});
 };
+
+//Alternate Solution
+var canPartition = function (nums) {
+  if (!nums) return false;
+  let total = nums.reduce((a, b) => a + b, 0);
+
+  if (total % 2 !== 0) return false;
+
+  let target = total / 2;
+  let dp = new Array(target + 1).fill(false);
+  dp[0] = true;
+
+  for (let num of nums) {
+    for (let i = target; i >= 0; i--) {
+      let diff = i - num;
+
+      if (!dp[i] && dp[diff]) {
+        dp[i] = true;
+      }
+      if (dp[target] == true) return true;
+    }
+  }
+
+  return false;
+};
