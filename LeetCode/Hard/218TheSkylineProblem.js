@@ -10,19 +10,19 @@ var getSkyline = function (buildings) {
 
   let copy = [...set];
   copy.sort((a, b) => a - b);
-  //Find the ehight for every X position and give answer a dummy set of coords to start
+  //Find the height for every X position and give answer a dummy set of coords to start
   const ans = [[-1, 0]];
-  for (const coords of copy) {
+  for (const coord of copy) {
     let i = 0;
     let height = 0;
-    while (i < buildings.length && buildings[i][0] <= coords) {
-      if (buildings[i][1] > coords) {
+    while (i < buildings.length && buildings[i][0] <= coord) {
+      if (buildings[i][1] > coord) {
         height = Math.max(height, buildings[i][2]);
       }
       i++;
     }
     if (ans[ans.length - 1][1] === height) continue;
-    ans.push([coords, height]);
+    ans.push([coord, height]);
   }
   return ans.slice(1);
 };
