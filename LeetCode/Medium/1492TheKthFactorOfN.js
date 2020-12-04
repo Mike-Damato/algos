@@ -7,3 +7,17 @@ var kthFactor = function (n, k) {
   }
   return k <= arr.length ? arr[k - 1] : -1;
 };
+
+//Optimized to use constant space
+const kthFactor = (n, k) => {
+  let count = 0;
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) {
+      count++;
+    }
+    if (count === k) {
+      return i;
+    }
+  }
+  return -1;
+};
