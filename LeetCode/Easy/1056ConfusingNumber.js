@@ -41,6 +41,5 @@ const confusingNumber = (N) => {
       newNum += nums[key];
     }
   }
-
   return N === parseInt(newNum) ? false : true;
 };
