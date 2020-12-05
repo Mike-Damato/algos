@@ -20,23 +20,23 @@ var canPlaceFlowers = function (flowerbed, n) {
 };
 
 //Alternate
-var canPlaceFlowers = function (flowerbed, n) {
-  if (flowerbed[0] === 0 && (!flowerbed[1] || flowerbed[1] === 0)) {
-    flowerbed[0] = 1;
-    n--;
-  }
+// var canPlaceFlowers = function (flowerbed, n) {
+//   if (flowerbed[0] === 0 && (!flowerbed[1] || flowerbed[1] === 0)) {
+//     flowerbed[0] = 1;
+//     n--;
+//   }
 
-  for (let i = 2; i < flowerbed.length; i++) {
-    let prev = flowerbed[i - 1];
-    let next = flowerbed[i + 1];
-    let current = flowerbed[i];
-    if (
-      current === 0 &&
-      ((prev === 0 && next === 0) || (prev === 0 && i === flowerbed.length - 1))
-    ) {
-      flowerbed[i] = 1;
-      n--;
-    }
-  }
-  return n <= 0;
-};
+//   for (let i = 2; i < flowerbed.length; i++) {
+//     let prev = flowerbed[i - 1];
+//     let next = flowerbed[i + 1];
+//     let current = flowerbed[i];
+//     if (
+//       current === 0 &&
+//       ((prev === 0 && next === 0) || (prev === 0 && i === flowerbed.length - 1))
+//     ) {
+//       flowerbed[i] = 1;
+//       n--;
+//     }
+//   }
+//   return n <= 0;
+// };
