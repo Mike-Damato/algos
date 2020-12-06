@@ -1,24 +1,39 @@
 var treeDiameter = function (edges) {
-  let map = new Map();
-  let seen = new Set();
-  let count = 0;
-  for (const [edge1, edge2] of edges) {
-    if (!map.has(edge1)) {
-      map.set(edge1, []);
+  const map = new Map();
+  let ans = 0;
+
+  for (const edge of edges) {
+    if (!map.has(edge[0])) {
+      map.set(edge[0], []);
     }
-    map.get(edge1).push(edge2);
-    if (!map.has(edge2)) {
-      map.set(edge2, []);
+    if (!map.has(edge[1])) {
+      map.set(edge[1], []);
     }
-    map.get(edge2).push(edge1);
+
+    map.get(edge[0]).push(edge[1]);
+    map.get(edge[1]).push(edge[0]);
   }
-  console.log(map);
+
+  const set = new Set();
+
   const dfs = (node) => {
-    if (!node) return;
-    if (seen.has(node)) return;
-    seen.add(node);
-    for (const neighbor of map.get(node)) {
-      if (seen.has(neighbor)) continue;
+    set.add(node);
+
+    let [start, end] = [0, 0];
+    for (const child of map.get(node)) {
+      if (set.has(child)) continue;
+      const pathLength = dfs(child);
+      if (pathLength > start) {
+        end = start;
+        start = pathLength;
+      } else if (pathLength <= start && pathLength > end) {
+        end = pathLength;
+      }
     }
+    ans = Math.max(ans, start + end + 1);
+    return 1 + start;
   };
+
+  dfs(0);
+  return ans - 1;
 };
