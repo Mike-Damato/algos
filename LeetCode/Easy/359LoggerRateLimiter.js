@@ -3,7 +3,6 @@ class Logger {
     this.map = new Map();
   }
   shouldPrintMessage(timestamp, message) {
-    //console.log(this.map)
     if (!this.map.has(message)) {
       this.map.set(message, timestamp);
       return true;

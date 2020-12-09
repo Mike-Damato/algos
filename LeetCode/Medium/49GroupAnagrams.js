@@ -10,3 +10,18 @@ var groupAnagrams = function (strs) {
   }
   return Object.values(hash);
 };
+
+//With Map
+var groupAnagrams = function (strs) {
+  const map = new Map();
+
+  for (const word of strs) {
+    let sorted = word.split('').sort().join('');
+    if (map.has(sorted)) {
+      map.get(sorted).push(word);
+    } else {
+      map.set(sorted, [word]);
+    }
+  }
+  return [...map.values()];
+};
