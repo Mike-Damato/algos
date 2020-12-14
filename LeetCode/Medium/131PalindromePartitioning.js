@@ -30,3 +30,29 @@ const isPalindrome = (str) => {
   }
   return true;
 };
+
+//Alternate
+const partition = (s) => {
+  if (s.length === 1) return [[s]];
+  const ans = [];
+
+  const backtrack = (arr, start) => {
+    if (start === s.length) {
+      ans.push([...arr]);
+      return;
+    }
+  };
+};
+
+const isPalindrome = (str) => {
+  let left = 0;
+  let right = str.length - 1;
+  while (left <= right) {
+    if (str[left] !== str[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+  return true;
+};
