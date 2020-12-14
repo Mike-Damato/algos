@@ -31,3 +31,39 @@ var deserialize = function (data) {
   };
   return deserailizeHelper(data);
 };
+
+//Alternate
+var serialize = function (root) {
+  const tree = [];
+
+  const dfs = (node) => {
+    if (!node) {
+      //Use # to signify null
+      tree.push('#');
+    } else {
+      tree.push(node.val);
+      dfs(node.left);
+      dfs(node.right);
+    }
+  };
+  dfs(root);
+  return tree.join(' ');
+};
+
+var deserialize = function (data) {
+  if (!data) return null;
+  let arr = data.split(' ');
+
+  const makeTree = () => {
+    let val = arr.shift();
+    if (val === '#') {
+      return null;
+    } else {
+      let node = new TreeNode(Number(val));
+      node.left = makeTree();
+      node.right = makeTree();
+      return node;
+    }
+  };
+  return makeTree();
+};
