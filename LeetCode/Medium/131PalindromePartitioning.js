@@ -41,7 +41,19 @@ const partition = (s) => {
       ans.push([...arr]);
       return;
     }
+    let subStr = '';
+    for (let i = start; i < s.length; i++) {
+      subStr += s[i];
+      if (isPalindrome(subStr)) {
+        arr.push(subStr);
+        backtrack(arr, i + 1);
+        arr.pop();
+      }
+    }
   };
+
+  backtrack([], 0);
+  return ans;
 };
 
 const isPalindrome = (str) => {
