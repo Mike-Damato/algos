@@ -67,3 +67,6 @@ var deserialize = function (data) {
   };
   return makeTree();
 };
+
+//One liner
+const [serialize, deserialize] = [JSON.stringify, JSON.parse];
