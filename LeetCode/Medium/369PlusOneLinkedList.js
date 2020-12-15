@@ -19,3 +19,29 @@ const helper = (node) => {
 
   return sum === 10 ? 1 : 0;
 };
+
+//Iterative
+const plusOne = (head) => {
+  let senty = new ListNode(0);
+  senty.next = head;
+  let notNine = senty;
+
+  let current = head;
+
+  while (current) {
+    if (current.val !== 9) {
+      notNine = current;
+    }
+    current = current.next;
+  }
+
+  notNine.val += 1;
+  notNine = notNine.next;
+
+  while (notNine) {
+    notNine.val = 0;
+    notNine = notNine.next;
+  }
+
+  return senty.val !== 0 ? senty : head;
+};
