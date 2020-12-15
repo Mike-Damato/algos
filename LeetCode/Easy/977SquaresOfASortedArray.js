@@ -6,6 +6,16 @@ const sortedSquares = (A) => {
   return A.sort((a, b) => a - b);
 };
 
+//Alternate 1 Line solution
+const sortedSquares = (nums) => {
+  return nums.map((num) => (num *= num)).sort((a, b) => a - b);
+};
+
+var sortedSquares = function (nums) {
+  nums.forEach((num, i) => (nums[i] = num * num));
+  return nums.sort((a, b) => a - b);
+};
+
 //Solution 2
 const sortedSquares2 = (A) => {
   let squares = [];
