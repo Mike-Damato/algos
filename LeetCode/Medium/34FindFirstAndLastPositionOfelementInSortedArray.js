@@ -36,7 +36,6 @@ var searchRange = function (nums, target) {
 
 //Atlernate
 var searchRange = function (nums, target) {
-  // Write your code here.
   let range = [-1, -1];
   let left = 0;
   let right = nums.length - 1;
