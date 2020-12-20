@@ -1,6 +1,4 @@
 var cherryPickup = function (grid) {
-  const rows = grid.length;
-  const cols = grid[0].length;
   const cache = {};
 
   const dfs = (row, col1, col2) => {
