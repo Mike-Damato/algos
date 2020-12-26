@@ -43,7 +43,7 @@ const numDecodings = (s) => {
 
     if (idx > s.length) return 0;
 
-    //Check if we've already seen this
+    //Check if we've already seen this idx
     if (map.has(idx)) {
       return map.get(idx);
     }
