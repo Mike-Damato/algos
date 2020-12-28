@@ -1,6 +1,6 @@
 var reachNumber = function (target) {
   target = Math.abs(target);
-  let currentStep = 1;
+  let currentStep = 0;
 
   while (target > 0) {
     currentStep++;
