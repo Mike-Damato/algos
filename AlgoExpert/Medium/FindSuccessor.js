@@ -11,10 +11,8 @@ class BinaryTree {
 function findSuccessor(tree, node) {
   // Write your code here.
   if (!tree) return null;
-  // console.log(node)
   const arr = [];
   dfs(tree, arr);
-  console.log(arr);
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].value === node.value) {
       return arr[i + 1] || null;
