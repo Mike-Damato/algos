@@ -31,13 +31,21 @@ const markBoard = (board) => {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
       let neighbors = getNeighbors(board, i, j);
-      if (board[i][j] === 1 && (neighbors < 2 || neighbors > 3)) {
+      if (aliveToDead(board, i, j, neighbors)) {
         board[i][j] = 2;
-      } else if (board[i][j] === 0 && neighbors === 3) {
+      } else if (deadToAlive(board, i, j, neighbors)) {
         board[i][j] = -1;
       }
     }
   }
+};
+
+const deadToAlive = (board, i, j, neighbors) => {
+  return board[i][j] === 0 && neighbors === 3;
+};
+
+const aliveToDead = (board, i, j, neighbors) => {
+  return board[i][j] === 1 && (neighbors < 2 || neighbors > 3);
 };
 
 const getNeighbors = (board, i, j) => {
