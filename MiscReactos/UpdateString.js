@@ -20,3 +20,32 @@ const updateString = (str) => {
   }
   return newStr;
 };
+
+//As an example to do the above "in place"
+const updateString = (str) => {
+  str = str.split('');
+  let j = 0;
+  let whiteSpaceCount = false;
+  let lastLetterIdx = -1;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ' ') {
+      if (!whiteSpaceCount) {
+        j += 1;
+      } else {
+        continue;
+      }
+      whiteSpaceCount = true;
+    } else {
+      swap(str, i, j);
+      whiteSpaceCount = false;
+      j += 1;
+      lastLetterIdx = j;
+    }
+  }
+  return str.slice(0, lastLetterIdx).join('');
+};
+
+const swap = (arr, i, j) => {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+  return arr;
+};
