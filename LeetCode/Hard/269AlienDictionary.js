@@ -29,6 +29,7 @@ const alienOrder = (words) => {
   const marked = new Set();
   let str = '';
   let hasCycle = false;
+
   const visit = (node) => {
     if (marked.has(node)) return;
     if (visited.has(node)) {
@@ -36,7 +37,7 @@ const alienOrder = (words) => {
       return;
     }
     visited.add(node);
-    map.get(node).forEach(visit);
+    map.get(node).forEach((neighbor) => visit(neighbor));
     marked.add(node);
     str = node + str;
   };
