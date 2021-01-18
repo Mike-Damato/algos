@@ -16,3 +16,18 @@ var maxOperations = function (nums, k) {
   }
   return count;
 };
+
+const maxOperations = (nums, k) => {
+  const map = new Map();
+  let count = 0;
+  for (const num of nums) {
+    let diff = k - num;
+    if (map.get(num) > 0) {
+      count++;
+      map.set(num, map.get(num) - 1);
+    } else {
+      map.set(diff, (map.get(diff) || 0) + 1);
+    }
+  }
+  return count;
+};
