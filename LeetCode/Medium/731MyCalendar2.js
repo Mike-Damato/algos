@@ -1,5 +1,5 @@
 class MyCalendarTwo {
-  constructor(calendar, doubleBooked) {
+  constructor() {
     this.calendar = [];
     this.doubleBooked = [];
   }
