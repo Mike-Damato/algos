@@ -21,6 +21,8 @@ const radixSort = (nums) => {
   let maxDigitCount = mostDigits(nums);
   for (let k = 0; k < maxDigitCount; k++) {
     let digitBuckets = Array.from({ length: 10 }, () => []);
+    //A Nicer way to do multidimensional arrays
+    //let digiBuckets = new Array(10).fill().map(() => new Array(0));
     for (let i = 0; i < nums.length; i++) {
       digitBuckets[getDigit(nums[i], k)].push(nums[i]);
     }
