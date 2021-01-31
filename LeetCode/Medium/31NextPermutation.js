@@ -14,7 +14,7 @@ var nextPermutation = function (nums) {
     swap(nums, i, j);
   }
 
-  //Swap everyting back to go back to ascending order
+  //Swap everything back to go back to ascending order
   let left = i + 1;
   let right = nums.length - 1;
   while (left < right) {
