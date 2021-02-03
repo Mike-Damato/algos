@@ -40,3 +40,45 @@ const makeCols = (points) => {
   }
   return map;
 };
+
+//Alternate Solution
+function minimumAreaRectangle(points) {
+  // Write your code here.
+  let minArea = Infinity;
+  const set = makeSet(points);
+
+  for (let i = 0; i < points.length; i++) {
+    const [x2, y2] = points[i];
+    for (let prev = 0; prev < i; prev++) {
+      const [x1, y1] = points[prev];
+      const samePoints = x1 === x2 || y1 === y2;
+
+      if (samePoints) continue;
+
+      const point1Diagonal = set.has(makeKey(x1, y2));
+      const point2Diagonal = set.has(makeKey(x2, y1));
+      const canMakeRectangle = point1Diagonal && point2Diagonal;
+
+      if (canMakeRectangle) {
+        const currentArea = Math.abs(x2 - x1) * Math.abs(y2 - y1);
+        minArea = Math.min(minArea, currentArea);
+      }
+    }
+  }
+
+  return minArea === Infinity ? 0 : minArea;
+}
+
+const makeSet = (points) => {
+  const set = new Set();
+  for (const point of points) {
+    const [x, y] = point;
+    const key = makeKey(x, y);
+    set.add(key);
+  }
+  return set;
+};
+
+const makeKey = (x, y) => {
+  return `${x}-${y}`;
+};
