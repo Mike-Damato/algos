@@ -1,6 +1,5 @@
 //O(N^2) Time | O(N) Space
 function minimumAreaRectangle(points) {
-  // Write your code here.
   const cols = makeCols(points);
   let minArea = Infinity;
   const edges = new Map();
@@ -45,7 +44,6 @@ const makeCols = (points) => {
 //O(N^2) Time | O(N) Space
 
 function minimumAreaRectangle(points) {
-  // Write your code here.
   let minArea = Infinity;
   const set = makeSet(points);
 
