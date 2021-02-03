@@ -42,6 +42,8 @@ const makeCols = (points) => {
 };
 
 //Alternate Solution
+//O(N^2) Time | O(N) Space
+
 function minimumAreaRectangle(points) {
   // Write your code here.
   let minArea = Infinity;
