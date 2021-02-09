@@ -4,11 +4,9 @@ class LinkedList {
     this.next = null;
   }
 }
-
-exports.LinkedList = LinkedList;
-
+//O(max(N+M)) Time | O(max(N+M)) Space
+//Where N is the length of list 1 and M is length of list 2
 function sumOfLinkedLists(linkedListOne, linkedListTwo) {
-  // Write your code here.
   const newList = new LinkedList(0);
   let current = newList;
   let nodeOne = linkedListOne;
