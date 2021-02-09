@@ -22,6 +22,7 @@ function sumOfLinkedLists(linkedListOne, linkedListTwo) {
     const newNode = new LinkedList(newVal);
     current.next = newNode;
     current = newNode;
+    //current = current.next also is fine
 
     carry = Math.floor(sum / 10);
     nodeOne = nodeOne !== null ? nodeOne.next : null;
