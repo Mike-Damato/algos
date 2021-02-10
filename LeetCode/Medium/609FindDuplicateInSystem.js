@@ -13,3 +13,21 @@ var findDuplicate = function (paths) {
   }
   return [...map.values()].filter((item) => item.length > 1);
 };
+
+//Alternate solution
+const findDuplicate = (paths) => {
+  const map = new Map();
+  for (const path of paths) {
+    const [dir, ...files] = path.split(' ');
+    for (let i = 0; i < files.length; i++) {
+      let [fileName, content] = files[i].split('(');
+
+      if (!map.has(content)) {
+        map.set(content, []);
+      }
+
+      map.get(content).push(`${dir}/${fileName}`);
+    }
+  }
+  return [...map.values()].filter((item) => item.length > 1);
+};
