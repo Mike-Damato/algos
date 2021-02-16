@@ -17,6 +17,6 @@ const backtrack = (str, idx, currentStr, arr) => {
   } else if (str.charAt(idx) >= 'a' && str.charAt(idx) <= 'z') {
     backtrack(str, idx + 1, currentStr + str.charAt(idx).toUpperCase(), arr);
   }
-  //Regardless backtrack for another permuation
+  //Regardless backtrack for another permutation
   backtrack(str, idx + 1, currentStr + str.charAt(idx), arr);
 };
