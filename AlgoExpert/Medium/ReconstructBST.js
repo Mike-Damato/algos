@@ -47,9 +47,9 @@ const reconstructBSTFromArray = (left, right, preorder, newTree) => {
   if (newTree.root === preorder.length) return null;
 
   const rootVal = preorder[newTree.root];
-  if (rootVal <= left || rootVal >= right) return null;
+  if (rootVal < left || rootVal >= right) return null;
   newTree.root++;
-  const leftSubTree = reconstructBSTFromArray(left, rootVal, preorder, newTree);
+  const leftSubtree = reconstructBSTFromArray(left, rootVal, preorder, newTree);
   const rightSubtree = reconstructBSTFromArray(
     rootVal,
     right,
