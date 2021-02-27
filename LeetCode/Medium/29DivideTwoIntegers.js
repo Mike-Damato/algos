@@ -21,7 +21,7 @@ var divide = function (dividend, divisor) {
   return isNegative ? ans * -1 : ans;
 };
 
-//Cheating way to solve this one...
+//Cheeky way to solve but doesn't satisfy prompt
 const divide = (dividend, divisor) => {
   if (dividend === -2147483648 && divisor === -1) {
     return 2147483647;
