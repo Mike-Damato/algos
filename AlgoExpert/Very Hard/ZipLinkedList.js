@@ -10,14 +10,11 @@ reverse 2nd list
 then interweave
 */
 function zipLinkedList(linkedList) {
-  // Write your code here.
   if (!linkedList.next || !linkedList.next.next) return linkedList;
   //split into 2 lists by finding the mid
   const secondHalf = splitList(linkedList);
   //Reverse 2nd half
   const reverseSecondHalf = reverseLinkedList(secondHalf);
-
-  // console.log(linkedList)
   //Interweave
   return merge(linkedList, reverseSecondHalf);
 }
