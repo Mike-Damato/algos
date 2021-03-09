@@ -7,7 +7,6 @@ var employeeFreeTime = function (schedule) {
     }
   }
   copy.sort((a, b) => a.start - b.start);
-  // console.log(copy)
   let temp = copy[0];
   for (const interval of copy) {
     if (temp.end < interval.start) {
