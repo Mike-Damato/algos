@@ -14,3 +14,21 @@ var canVisitAllRooms = function (rooms) {
 
   return set.size === rooms.length;
 };
+
+//Another Approach
+
+var canVisitAllRooms = function (rooms) {
+  const visited = new Set();
+
+  const dfs = (node, visited) => {
+    visited.add(node);
+    for (const room of rooms[node]) {
+      if (!visited.has(room)) {
+        dfs(room, visited);
+      }
+    }
+  };
+
+  dfs(0, visited);
+  return visited.size === rooms.length;
+};
